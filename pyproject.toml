@@ -1,0 +1,22 @@
+[project]
+name = "log-triage-assistant"
+version = "0.1.0"
+description = "Разбор инцидентов по логам: RAG, read-only MCP-инструменты, LLM-триаж"
+requires-python = ">=3.10"
+readme = "README.md"
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["B905"]
+
+[tool.ruff.lint.per-file-ignores]
+"triage/synth.py" = ["E501"]
+"tests/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
